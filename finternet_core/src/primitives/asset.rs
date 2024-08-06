@@ -37,16 +37,35 @@ pub enum AssetType {
     NonFungible,
 }
 
-// Asset Status
-/// Asset Status
+// // Asset Status
+// /// Asset Status
+// #[derive(Debug, Clone, Serialize, Deserialize)]
+// pub enum AssetStatus {
+//     /// Locked Asset
+//     Locked,
+//     /// Unlocked Asset
+//     Unlocked,
+// }
+
+// Holder and there share in the asset
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub enum AssetStatus {
-    /// Locked Asset
-    Locked,
-    /// Unlocked Asset
-    Unlocked,
+pub struct HolderConfig {
+    pub holder_id: FinternetUID,
+    pub ownership_basis_points: u16,
 }
 
+// basic actions that are possible on the asset for real world
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum AuthorityType {
+    Delegate,
+    Lock,
+    // ... More can come here
+}
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AuthorityConfig {
+    pub authority_type: AuthorityType,
+    pub authority_id: Option<FinternetUID>, // this can be a bank [ Token Manager ] or someone depending how its use
+}
 // AssetInstance Struct
 /// Instance of the Asset struct
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -54,7 +73,7 @@ pub struct AssetInstance {
     /// Asset ID
     pub asset_id: FinternetUID,
     /// Holder of the Asset
-    pub holder: FinternetUID,
+    pub holders: Vec<HolderConfig>,
     /// Units of the Asset
     pub units: u64,
     /// FinternetChainID of the Asset as per user preference
@@ -70,5 +89,7 @@ pub struct AssetInstance {
     /// Modified At
     pub modified_at: u64,
     /// Asset Status
-    pub status: AssetStatus,
+    // pub status: AssetStatus,
+    // Config of the assest helps with access control
+    pub asset_authority_config: Vec<AuthorityConfig>,
 }
