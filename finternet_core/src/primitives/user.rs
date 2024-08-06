@@ -19,9 +19,13 @@ pub struct User {
     pub user_metadata: HashMap<String, String>, // User Metadata
     /// User Preferred Chain ID
     pub preferred_chain: FinternetChainID,
-    /// User Asset Ledger
-    pub asset_ledger: HashMap<FinternetUID, u64>, // Asset Ledger for the user (Asset ID, Units)
     /// User Asset Config
     pub asset_config: HashMap<FinternetUID, HashMap<String, String>>, // Asset specific config like
-                                                                      // whitelisted senders, spend limits etc
+    // whitelisted senders, spend limits etc
+    /// Incoming Asset Ledger
+    pub incoming_asset_ledger: HashMap<FinternetUID, HashMap<FinternetUID, u64>>, // Incoming Asset Ledger for the user (Asset ID, Sender, Units)
+    /// Outgoing Asset Ledger
+    pub outgoing_asset_ledger: HashMap<FinternetUID, HashMap<FinternetUID, u64>>, // Incoming Asset Ledger for the user (Asset ID, Sender, Units)
+    /// User Asset Ledger
+    pub asset_ledger: HashMap<FinternetUID, u64>, // Asset Ledger for the user (Asset ID, Units)
 }
