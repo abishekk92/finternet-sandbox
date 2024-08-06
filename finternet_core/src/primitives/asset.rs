@@ -1,7 +1,8 @@
 /// Types and traits for working with assets.
-use crate::primitives::core::FinternetUID;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+
+use super::core::{FinternetChainID, FinternetUID};
 
 // Asset Struct
 /// Asset struct to store the asset details
@@ -21,10 +22,8 @@ pub struct Asset {
     pub modified_at: u64,
     /// Asset Type
     pub asset_type: AssetType,
-    /// Asset Status
-    pub status: AssetStatus,
-    /// Holder
-    pub holder: FinternetUID,
+    /// Asset Metadata
+    // __NOTE__: Important to provide a provision for metadata
     pub asset_metadata: HashMap<String, String>, // Asset Metadata
 }
 
@@ -46,4 +45,30 @@ pub enum AssetStatus {
     Locked,
     /// Unlocked Asset
     Unlocked,
+}
+
+// AssetInstance Struct
+/// Instance of the Asset struct
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AssetInstance {
+    /// Asset ID
+    pub asset_id: FinternetUID,
+    /// Holder of the Asset
+    pub holder: FinternetUID,
+    /// Units of the Asset
+    pub units: u64,
+    /// FinternetChainID of the Asset as per user preference
+    // __NOTE__
+    // Care should be taken to ensure that the chain_id is the same as the user's preferred chain_id
+    // Very easy to mess up. We will deal with this complexity later
+    // The user might prefer to hold different assets on different chains
+    pub chain_id: FinternetChainID,
+    /// Asset Token Manager
+    pub token_manager: FinternetUID,
+    /// Created At
+    pub created_at: u64,
+    /// Modified At
+    pub modified_at: u64,
+    /// Asset Status
+    pub status: AssetStatus,
 }
