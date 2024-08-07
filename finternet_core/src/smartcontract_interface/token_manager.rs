@@ -16,14 +16,7 @@ pub trait TokenManager {
         user_id: FinternetUID,
         units: u64,
     ) -> Result<FinternetUID, String>;
-    fn transfer(
-        &self,
-        asset_id: FinternetUID,
-        from_user_id: FinternetUID,
-        to_user_id: FinternetUID,
-        units: u64,
-    ) -> Result<FinternetUID, String>;
-    fn authorize_transfer(
+    fn approve_transfer(
         &self,
         asset_id: FinternetUID,
         from_user_id: FinternetUID,
