@@ -1,4 +1,10 @@
 [workspace]
 members = [
-    "finternet_core",
+    "finternet-core",
+    "solana-ul-provider",
 ]
+resolver = "2"
+
+[patch.crates-io]
+curve25519-dalek = { git = "https://github.com/block-mesh/curve25519-dalek", branch = "rustls-dep-hell-1-18" }
+aes-gcm-siv = { git = 'https://github.com/block-mesh/AEADs', branch = 'rustls-dep-hell-1-18' }

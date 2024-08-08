@@ -9,28 +9,28 @@ pub trait TokenManager {
         asset_id: FinternetUID,
         user_id: FinternetUID,
         units: u64,
-    ) -> Result<FinternetUID, String>;
+    ) -> Result<String, String>;
     fn detokenize(
         &self,
         asset_id: FinternetUID,
         user_id: FinternetUID,
         units: u64,
-    ) -> Result<FinternetUID, String>;
+    ) -> Result<String, String>;
     fn approve_transfer(
         &self,
         asset_id: FinternetUID,
         from_user_id: FinternetUID,
         to_user_id: FinternetUID,
         units: u64,
-    ) -> Result<bool, String>;
+    ) -> Result<String, String>;
     fn update_asset_status(
         &self,
         asset_id: FinternetUID,
         status: AssetStatus,
-    ) -> Result<FinternetUID, String>;
+    ) -> Result<String, String>;
     fn update_asset_metadata(
         &self,
         asset_id: FinternetUID,
         metadata: HashMap<String, String>,
-    ) -> Result<FinternetUID, String>;
+    ) -> Result<String, String>;
 }

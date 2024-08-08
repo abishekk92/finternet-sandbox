@@ -1,0 +1,12 @@
+[package]
+name = "solana-ul-provider"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+finternet-core = { version = "0.0.0", path = "../finternet-core" }
+solana-sdk = { version = "1.18.21", features = ["curve25519-dalek"] }
+anchor-client = { version = "0.30.1 ", features = ["async"] }
+anchor-spl = { version = "0.30.1", features = ["spl-associated-token-account", "spl-token", "metadata"] }
+solana-account-decoder = { version = "1.18.21" }
+solana-zk-token-sdk = { version = "1.18.21" }
