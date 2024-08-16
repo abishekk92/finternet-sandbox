@@ -5,6 +5,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
+token-manager = "73UuPNok7KPn3tKoQzGV4ZXsG8TmAMCE3bzTvTZSed13"
 user_manager = "8Yrj4EMn2rWLmXLpnJWgWc1KXTLZ8DtneEfJ4cuPXr2N"
 
 [registry]

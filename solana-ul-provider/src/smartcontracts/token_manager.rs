@@ -22,7 +22,7 @@ impl TokenManager for ABCTokenManager {
         Ok("Success".to_string())
     }
 
-    fn approve_transfer(
+    fn approve(
         &self,
         _asset_id: finternet_core::primitives::core::FinternetUID,
         _from_user_id: finternet_core::primitives::core::FinternetUID,
