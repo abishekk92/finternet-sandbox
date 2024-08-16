@@ -17,39 +17,24 @@ pub mod user_manager {
         emit_cpi!(log);
         Ok(())
     }
-    // fn delete_user(&self, _user_id: FinternetUID) -> Result<String, String> {
-    //     Ok("Success".to_string())
-    // }
 
-    // fn rotate_key(&self, _user_id: FinternetUID, _new_key: PublicKey) -> Result<String, String> {
-    //     Ok("Success".to_string())
-    // }
+    pub fn delete_user(ctx: Context<DeleteUser>, data: Vec<u8>) -> Result<()> {
+        let log = EncryptedLog { data };
+        emit_cpi!(log);
+        Ok(())
+    }
 
-    // fn accept_incoming_asset(
-    //     &self,
-    //     _user_id: FinternetUID,
-    //     _asset_id: FinternetUID,
-    // ) -> Result<String, String> {
-    //     Ok("Success".to_string())
-    // }
+    pub fn rotate_key(ctx: Context<RotateKey>, data: Vec<u8>) -> Result<()> {
+        let log = EncryptedLog { data };
+        emit_cpi!(log);
+        Ok(())
+    }
 
-    // fn update_asset_units(
-    //     &self,
-    //     _user_id: FinternetUID,
-    //     _asset_id: FinternetUID,
-    //     _new_units: u64,
-    // ) -> Result<String, String> {
-    //     Ok("Success".to_string())
-    // }
-
-    // fn update_asset_config(
-    //     &self,
-    //     _user_id: FinternetUID,
-    //     _asset_id: FinternetUID,
-    //     _config: HashMap<String, String>,
-    // ) -> Result<String, String> {
-    //     Ok("Success".to_string())
-    // }
+    pub fn accept_incoming_asset(ctx: Context<AcceptIncomingAsset>, data: Vec<u8>) -> Result<()> {
+        let log = EncryptedLog { data };
+        emit_cpi!(log);
+        Ok(())
+    }
 }
 
 #[event_cpi]
@@ -61,6 +46,21 @@ pub struct CreateUser {}
 #[derive(Accounts)]
 #[instruction(data: Vec<u8>)]
 pub struct UpdateUser {}
+
+#[event_cpi]
+#[derive(Accounts)]
+#[instruction(data: Vec<u8>)]
+pub struct DeleteUser {}
+
+#[event_cpi]
+#[derive(Accounts)]
+#[instruction(data: Vec<u8>)]
+pub struct RotateKey {}
+
+#[event_cpi]
+#[derive(Accounts)]
+#[instruction(data: Vec<u8>)]
+pub struct AcceptIncomingAsset {}
 
 #[event]
 pub struct EncryptedLog {

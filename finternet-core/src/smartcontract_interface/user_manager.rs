@@ -3,7 +3,6 @@ use crate::{
     primitives::core::{FinternetUID, PublicKey},
     primitives::user::User,
 };
-use std::collections::HashMap;
 
 // User Trait
 pub trait UserManager {
@@ -15,17 +14,5 @@ pub trait UserManager {
         &self,
         user_id: FinternetUID,
         asset_id: FinternetUID,
-    ) -> Result<String, String>;
-    fn update_asset_units(
-        &self,
-        user_id: FinternetUID,
-        asset_id: FinternetUID,
-        new_units: u64,
-    ) -> Result<String, String>;
-    fn update_asset_config(
-        &self,
-        user_id: FinternetUID,
-        asset_id: FinternetUID,
-        config: HashMap<String, String>,
     ) -> Result<String, String>;
 }
