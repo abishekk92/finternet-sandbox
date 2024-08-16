@@ -8,6 +8,10 @@ skip-lint = false
 token-manager = "73UuPNok7KPn3tKoQzGV4ZXsG8TmAMCE3bzTvTZSed13"
 user_manager = "8Yrj4EMn2rWLmXLpnJWgWc1KXTLZ8DtneEfJ4cuPXr2N"
 
+[programs.devnet]
+token-manager = "A5JxZVHgXe7fn5TqJXm6Hj2zKh1ptDapae2YjtXbZJoy"
+user_manager = "CmFuqQTLs2nQof5uaktJn1a6k2VdbGmZPfrJufB2Vm3F"
+
 [registry]
 url = "https://api.apr.dev"
 
