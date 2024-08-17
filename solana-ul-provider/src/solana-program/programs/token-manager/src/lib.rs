@@ -1,6 +1,6 @@
+use anchor_lang::emit_cpi;
 use anchor_lang::prelude::*;
-
-declare_id!("73UuPNok7KPn3tKoQzGV4ZXsG8TmAMCE3bzTvTZSed13");
+declare_id!("A5JxZVHgXe7fn5TqJXm6Hj2zKh1ptDapae2YjtXbZJoy");
 
 #[program]
 pub mod token_manager {
