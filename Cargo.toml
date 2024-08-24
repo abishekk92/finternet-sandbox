@@ -2,6 +2,7 @@
 members = [
     "finternet-core",
     "solana-ul-provider",
+    "solana-ul-provider/ul-api"
 ]
 resolver = "2"
 

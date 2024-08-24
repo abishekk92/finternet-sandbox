@@ -1,0 +1,3 @@
+[submodule "solana-ul-provider/ul-api"]
+	path = solana-ul-provider/ul-api
+	url = git@github.com:abishekk92/finternet-ul-api.git
