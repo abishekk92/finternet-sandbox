@@ -17,6 +17,11 @@ pub mod user_manager {
         emit_cpi!(log);
         Ok(())
     }
+    pub fn transfer(ctx: Context<Transfer>, data: Vec<u8>) -> Result<()> {
+        let log = EncryptedLog { data };
+        emit_cpi!(log);
+        Ok(())
+    }
 
     pub fn delete_user(ctx: Context<DeleteUser>, data: Vec<u8>) -> Result<()> {
         let log = EncryptedLog { data };
@@ -41,6 +46,11 @@ pub mod user_manager {
 #[derive(Accounts)]
 #[instruction(data: Vec<u8>)]
 pub struct CreateUser {}
+
+#[event_cpi]
+#[derive(Accounts)]
+#[instruction(data: Vec<u8>)]
+pub struct Transfer {}
 
 #[event_cpi]
 #[derive(Accounts)]
